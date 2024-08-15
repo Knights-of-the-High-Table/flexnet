@@ -1,0 +1,88 @@
+# .NET generated files
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+.vscode/settings.json
+
+# Rider IDE files
+.idea/
+
+# Visual Studio Code / JetBrains Rider / Visual Studio for Mac
+.vscode/
+.idea/
+*.sln.iml
+*.csproj.user
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Entity Framework Migrations
+Migrations/
+
+# NPM packages (for projects that include a frontend with npm or yarn)
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.yarn-integrity
+
+# NuGet Packages
+*.nupkg
+# The build output should not be tracked
+*.dll
+*.exe
+*.pdb
+*.nuget
+*.snupkg
+
+# The Visual Studio database project
+*.mdf
+*.ldf
+
+# Local history for Visual Studio
+.vs/
+
+# Dotnet User Secrets
+secrets.json
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+*.sln.dotSettings.user
+
+# Windows PowerShell
+*.ps1
+
+# Diagnostic Reports
+*.stackdump
+
+# Dotnet restore artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Backup & output files
+*_i.c
+*_p.c
+*_i.h
+*.
