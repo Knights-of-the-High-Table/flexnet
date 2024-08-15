@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Registration from "./pages/Registration";
-import LogIn from "./pages/LogIn";
+import Login from "./pages/Login";
 import NoPage from "./pages/NoPage";
 
 function App() {  
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="registration" element={<Registration />} />
-        <Route path="login" element={<LogIn />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
