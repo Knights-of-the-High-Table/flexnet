@@ -86,3 +86,5 @@ artifacts/
 *_p.c
 *_i.h
 *.
+# appsettings
+appsettings.Production.json
