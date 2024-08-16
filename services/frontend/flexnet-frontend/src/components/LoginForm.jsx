@@ -8,6 +8,14 @@ export default function LoginForm() {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
     return (
@@ -18,7 +26,7 @@ export default function LoginForm() {
             width: '100%'
         }}>
             <Typography variant="h3" sx={{ mb: 4 }}>Sign In</Typography>
-            <TextField id="email" label="Email Address" variant="outlined" fullWidth onChange={setEmail} />
+            <TextField id="email" label="Email Address" variant="outlined" fullWidth onChange={handleEmailChange} />
             <TextField id="password" label="Password" variant="outlined" fullWidth type={showPassword ? "text" : "password"} InputProps={{
                 endAdornment:
                     <InputAdornment position="end">
@@ -26,7 +34,7 @@ export default function LoginForm() {
                             {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                         </IconButton>
                     </InputAdornment>
-            }} onChange={setPassword} />
+            }} onChange={handlePasswordChange} />
             <Button variant="contained">Login</Button>
             <Divider />
             <Typography variant="p" sx={{ textAlign: 'center' }}>Don't have an account? <Link href="/registration">Sign up</Link></Typography>

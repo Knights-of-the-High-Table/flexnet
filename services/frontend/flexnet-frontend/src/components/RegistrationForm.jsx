@@ -15,8 +15,54 @@ export default function RegistrationForm() {
     const [weight, setWeight] = useState(0);
     const [date, setDate] = useState(dayjs());
     const [showPassword, setShowPassword] = useState(false);
+    const apiUrl = import.meta.env.VITE_APP_API_URL;
+
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    }
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const handleHeightChange = (e) => {
+        setHeight(e.target.value);
+    }
+
+    const handleWeightChange = (e) => {
+        setWeight(e.target.value);
+    }
+
+    const handleDateChange = (e) => {
+        setDate(e.target.value);
+    }
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const handleRegister = () => {
+        console.log(`${apiUrl}`);
+        const json = {
+            email: email,
+            password: password
+        };
+        const options = {
+            method: 'POST',
+            credentials: 'include',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',                          
+            },
+            body: JSON.stringify(json)
+        };
+        fetch(`${apiUrl}/register`, options)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+    }
 
     return (
         <Box sx={{
@@ -26,8 +72,8 @@ export default function RegistrationForm() {
             width: '100%',
         }}>
             <Typography variant="h3" sx={{ mb: 4 }}>Sign Up</Typography>
-            <TextField id="name" label="Name" variant="outlined" fullWidth onChange={setName} />
-            <TextField id="email" label="Email Address" variant="outlined" fullWidth onChange={setEmail} />
+            <TextField id="name" label="Name" variant="outlined" fullWidth onChange={handleNameChange} />
+            <TextField id="email" label="Email Address" variant="outlined" fullWidth onChange={handleEmailChange} />
             <TextField id="password" label="Password" variant="outlined" fullWidth type={showPassword ? "text" : "password"} InputProps={{
                 endAdornment:
                     <InputAdornment position="end">
@@ -35,18 +81,18 @@ export default function RegistrationForm() {
                             {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
                         </IconButton>
                     </InputAdornment>
-            }} onChange={setPassword} />
+            }} onChange={handlePasswordChange} />
             <Box sx={{
                 display: 'flex',
                 gap: '20px'
             }}>
-                <TextField id="height" label="Height" variant="outlined" fullWidth type="number" InputProps={{ endAdornment: <InputAdornment position="end">cm</InputAdornment> }} onChange={setHeight} />
-                <TextField id="weight" label="Weight" variant="outlined" fullWidth type="number" InputProps={{ endAdornment: <InputAdornment position="end">kg</InputAdornment> }} onChange={setWeight} />
+                <TextField id="height" label="Height" variant="outlined" fullWidth type="number" InputProps={{ endAdornment: <InputAdornment position="end">cm</InputAdornment> }} onChange={handleHeightChange} />
+                <TextField id="weight" label="Weight" variant="outlined" fullWidth type="number" InputProps={{ endAdornment: <InputAdornment position="end">kg</InputAdornment> }} onChange={handleWeightChange} />
             </Box>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker label="Date of Birth" onChange={setDate} />
+                <DatePicker label="Date of Birth" onChange={handleDateChange} />
             </LocalizationProvider>
-            <Button variant="contained">Register</Button>
+            <Button variant="contained" onClick={handleRegister}>Register</Button>
             <Divider />
             <Typography variant="p" sx={{ textAlign: 'center' }}>Already have an account? <Link href="/login">Sign in</Link></Typography>
         </Box>
