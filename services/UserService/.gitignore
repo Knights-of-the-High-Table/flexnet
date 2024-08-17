@@ -87,4 +87,5 @@ artifacts/
 *_i.h
 *.
 # appsettings
-appsettings.Production.json
+appsettings.json
+appsettings.*.json
