@@ -24,14 +24,14 @@ builder.Services.AddSwaggerGen(c =>
    c.SwaggerDoc("v1", new OpenApiInfo { Title = "UserService API", Description = "User related services", Version = "v1" });
 });
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnecion");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions =>
-   dbContextOptions.UseMySql("host=database-1.cd8awy2u0g1v.eu-central-1.rds.amazonaws.com;Port=3306;database=flexnet;User Id=admin;password=flexnetdb;SslMode=Required;CaCertificateFile=global-bundle.pem",new MySqlServerVersion(new Version(8, 0, 23))));
+   dbContextOptions.UseMySql(connectionString,new MySqlServerVersion(new Version(8, 0, 23))));
 
 
 
