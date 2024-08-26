@@ -11,7 +11,7 @@ export default function Home() {
 
                 </Grid>
                 <Grid item md={6}>
-                    <Post />
+                    <Post />                    
                 </Grid>
                 <Grid item md={3}>
 
