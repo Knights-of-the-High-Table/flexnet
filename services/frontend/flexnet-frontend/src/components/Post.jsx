@@ -1,10 +1,11 @@
-import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
+import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Typography, useColorScheme, useTheme } from "@mui/material";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import PostDialog from "./PostDialog";
 import { useState } from "react";
 
 export default function Post() {
+    const theme = useTheme();    
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -14,7 +15,7 @@ export default function Post() {
     }
     return (     
         <>
-            <Card>
+            <Card sx={{mb: 2}}>
                 <CardHeader 
                     avatar={
                         <Avatar>A</Avatar>
@@ -47,16 +48,17 @@ export default function Post() {
 
                         #LegDay #FitnessJourney #StrongLegs #GymLife #NoDaysOff #FitnessMotivation
                     </Typography>            
-                    <Typography variant="p">1500 likes, 230 comments</Typography>                
                 </CardContent>   
-                <CardActions>                
+                <CardActions disableSpacing>                
                     <IconButton>
                         <ThumbUpIcon />
                     </IconButton>
-                    <IconButton onClick={handleOpen}>
+                    <Typography variant="p" sx={{fontWeight: 600, color: theme.palette.grey[700]}}>130</Typography>
+                    <IconButton sx={{ml: 1}} onClick={handleOpen}>
                         <InsertCommentIcon />
                     </IconButton>
-                </CardActions>                        
+                    <Typography variant="p" sx={{fontWeight: 600, color: theme.palette.grey[700]}}>130</Typography>
+                </CardActions>                         
             </Card>
 
             <PostDialog open={open} handleClose={handleClose}/>

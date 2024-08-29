@@ -1,8 +1,7 @@
-import { Avatar, Card, Dialog, DialogTitle, CardHeader, Typography, CardContent, CardActions, IconButton, Divider, List, ListItem, ListItemAvatar, ListItemText, Paper, Box, TextField, InputAdornment, DialogContent} from "@mui/material";
+import { Avatar, Card, Dialog, DialogTitle, CardHeader, Typography, CardContent, CardActions, IconButton, Divider, List, ListItem, ListItemAvatar, ListItemText, Paper, Box, TextField, InputAdornment, DialogContent, useTheme} from "@mui/material";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import SendIcon from '@mui/icons-material/Send';
-import { useTheme } from "@emotion/react";
 
 export default function PostDialog({open, handleClose }) {    
     const theme = useTheme();
@@ -45,13 +44,15 @@ export default function PostDialog({open, handleClose }) {
                             #LegDay #FitnessJourney #StrongLegs #GymLife #NoDaysOff #FitnessMotivation
                         </Typography>                                           
                     </CardContent>   
-                    <CardActions>                
+                    <CardActions disableSpacing>                
                         <IconButton>
                             <ThumbUpIcon />
                         </IconButton>
-                        <IconButton>
+                        <Typography variant="p" sx={{fontWeight: 600, color: theme.palette.grey[700]}}>130</Typography>
+                        <IconButton sx={{ml: 1}}>
                             <InsertCommentIcon />
                         </IconButton>
+                        <Typography variant="p" sx={{fontWeight: 600, color: theme.palette.grey[700]}}>130</Typography>
                     </CardActions>                       
                 </Card>
                 <Divider />

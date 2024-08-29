@@ -8,7 +8,7 @@ const theme = createTheme({
             light: '#DCEEFA'
         },
         background: {
-            default: '#e6e6e6',
+            default: '#e6e6e6',            
         },
     }
 })
