@@ -1,10 +1,9 @@
-import { Avatar, Card, Dialog, DialogTitle, CardHeader, Typography, CardContent, CardActions, IconButton, Divider, List, ListItem, ListItemAvatar, ListItemText, Paper, Box, TextField, InputAdornment, DialogContent, useTheme} from "@mui/material";
+import { Avatar, Card, Dialog, DialogTitle, CardHeader, Typography, CardContent, CardActions, IconButton, Divider, Paper, Box, TextField, InputAdornment, DialogContent} from "@mui/material";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import SendIcon from '@mui/icons-material/Send';
 
-export default function PostDialog({open, handleClose }) {    
-    const theme = useTheme();
+export default function PostDialog({open, handleClose, theme }) {        
     return (
         <Dialog open={open} onClose={handleClose} scroll="paper">
             <DialogTitle sx={{textAlign: 'center'}}>Adam's post</DialogTitle>

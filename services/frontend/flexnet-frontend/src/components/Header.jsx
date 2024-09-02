@@ -82,7 +82,7 @@ export default function Header({theme, page}) {
                     }}>     
                         <Tooltip title="Notifications">
                             <IconButton onClick={handleOpenNotifications}>
-                                <NotificationsIcon fontSize="large"/>
+                                <NotificationsIcon fontSize="large" sx={{color: notificationsOpen && theme.palette.primary.main}}/>
                             </IconButton>
                         </Tooltip>
                         <Tooltip title="My Account">
@@ -127,19 +127,19 @@ export default function Header({theme, page}) {
                 onClose={handleCloseNotifications}                      
             >
                 <Typography variant="h5" sx={{fontWeight: 600, p: 2}}>Notifications</Typography>
-                <MenuItem sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
+                <MenuItem onClick={handleCloseNotifications} sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
                     <Avatar>H</Avatar>
                     <Typography variant="p" sx={{ml: 1.5}}>Brian Brian commented on your post.</Typography>
                 </MenuItem>
-                <MenuItem sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
+                <MenuItem onClick={handleCloseNotifications} sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
                     <Avatar>H</Avatar>
                     <Typography variant="p" sx={{ml: 1.5}}>Brian Brian commented on your post in the Fitness Tips.</Typography>
                 </MenuItem>
-                <MenuItem sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
+                <MenuItem onClick={handleCloseNotifications} sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
                     <Avatar>H</Avatar>
                     <Typography variant="p" sx={{ml: 1.5}}>Brian Brian commented on your post.</Typography>
                 </MenuItem>
-                <MenuItem sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
+                <MenuItem onClick={handleCloseNotifications} sx={{whiteSpace: 'normal', wordBreak: 'break-word', width: '400px', p: 2}}>
                     <Avatar>H</Avatar>
                     <Typography variant="p" sx={{ml: 1.5}}>Brian Brian commented on your post.</Typography>
                 </MenuItem>

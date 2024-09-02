@@ -1,11 +1,10 @@
-import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Typography, useColorScheme, useTheme } from "@mui/material";
+import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import InsertCommentIcon from '@mui/icons-material/InsertComment';
 import PostDialog from "./PostDialog";
 import { useState } from "react";
 
-export default function Post() {
-    const theme = useTheme();    
+export default function Post({theme}) {   
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -61,7 +60,7 @@ export default function Post() {
                 </CardActions>                         
             </Card>
 
-            <PostDialog open={open} handleClose={handleClose}/>
+            <PostDialog open={open} handleClose={handleClose} theme={theme}/>
         </>   
     )
 }
