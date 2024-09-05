@@ -18,7 +18,7 @@ export default function BenchPressCalculator() {
                     </FormControl>                            
                     <TextField id="reps" variant="outlined" label="Reps" type="number"/>
                     <Button variant="contained">Calculate</Button>
-                    <TextField id="onerepmax" variant="outlined" label="One Rep Max" value="225 kg" slotProps={{input:{readOnly: true}}}/>
+                    <TextField id="onerepmax" variant="outlined" label="One Rep Max" value="225 kg" slotprops={{input:{readOnly: true}}}/>
                 </CardContent>                      
             </Card>
     )

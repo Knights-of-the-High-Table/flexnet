@@ -36,8 +36,8 @@ export default function Header({theme, page}) {
 
     return (
         <>
-            <AppBar elevation={3} sx={{py: 1, px: 3, bgcolor: theme.palette.background.paper}}>
-                <Grid container>
+            <AppBar elevation={3} sx={{px: 3, bgcolor: theme.palette.background.paper, display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '75px'}}>
+                <Grid container sx={{width: '100%'}}>
                     <Grid item xs={4} sx={{
                         display: 'flex',
                         justifyContent: 'flex-start',
@@ -96,10 +96,10 @@ export default function Header({theme, page}) {
             <Menu 
                 anchorEl={anchorEl}
                 open={accountMenuOpen}    
-                onClose={handleCloseAccountMenu}   
+                onClose={handleCloseAccountMenu}                   
             >                
                 <Typography variant="h5" sx={{fontWeight: 600, p: 2}}>My Account</Typography>
-                <MenuItem onClick={handleCloseAccountMenu} sx={{p: 2}}>
+                <MenuItem onClick={handleCloseAccountMenu} sx={{width: '250px', p: 2}}>
                     <Avatar>H</Avatar>
                     <Box sx={{display: 'flex', flexDirection: 'column'}}>
                     <Typography variant="p" sx={{ml: 1.5, fontWeight: 600}}>Brian Brian</Typography>
@@ -107,15 +107,15 @@ export default function Header({theme, page}) {
                     </Box>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleCloseAccountMenu} sx={{width: '300px', p: 2}}>
+                <MenuItem onClick={handleCloseAccountMenu} sx={{width: '250px', p: 2}}>
                     <SettingsIcon />
                     <Typography variant="p" sx={{ml: 1.5}}>Settings</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseAccountMenu} sx={{p: 2}}>
+                <MenuItem onClick={handleCloseAccountMenu} sx={{width: '250px', p: 2}}>
                     <FeedbackIcon />
                     <Typography variant="p" sx={{ml: 1.5}}>Send Feedback</Typography>
                 </MenuItem>
-                <MenuItem onClick={handleCloseAccountMenu} sx={{p: 2}}>
+                <MenuItem onClick={handleCloseAccountMenu} sx={{width: '250px', p: 2}}>
                     <LogoutIcon />
                     <Typography variant="p" sx={{ml: 1.5}}>Log Out</Typography>
                 </MenuItem>

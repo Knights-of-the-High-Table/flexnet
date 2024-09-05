@@ -36,6 +36,7 @@ export default function NewPost({theme}) {
                     avatar={
                         <Avatar>H</Avatar>
                     }
+                    titleTypographyProps={{fontWeight: 600, fontSize: '15px', color: theme.palette.text.secondary}}
                     title="Hayden Hayden"
                     
                 />           

@@ -20,9 +20,10 @@ export default function PostDialog({open, handleClose, theme }) {
                     <CardContent sx={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '20px'
+                        gap: '10px',
+                        p: 0
                     }}>
-                        <Typography variant="p">
+                        <Typography variant="p" sx={{p: 2}}>
                             🔥 Leg Day Essentials 🔥
 
                             Hey, #FitFam! 💪 If you’re looking to build strong, sculpted legs, consistency is key. Today was all about pushing past limits and making every rep count. Here’s a glimpse of my leg day routine:
@@ -41,7 +42,8 @@ export default function PostDialog({open, handleClose, theme }) {
                             Let’s keep crushing those goals together! 💥 Drop a 💯 if leg day is your favorite, or tell me your go-to leg exercises below! 👇
 
                             #LegDay #FitnessJourney #StrongLegs #GymLife #NoDaysOff #FitnessMotivation
-                        </Typography>                                           
+                        </Typography> 
+                        <Box component="img" alt="image" src="../Leg-Day-Workout.webp" sx={{width: '100%', boxSizing: 'border-box'}}/>    
                     </CardContent>   
                     <CardActions disableSpacing>                
                         <IconButton>
