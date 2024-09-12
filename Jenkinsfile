@@ -4,14 +4,18 @@ pipeline {
             label 'docker-agent-alpine'
             }
       }
-    tools {
-        nodejs "nodejs"
-    }
       environment{
         S3_BUCKET = credentials('flexnet_s3_bucket')
         CLOUDFRONT_DISTRIBUTION_ID = credentials('flexnet_cloudfront_distribution_id')
       }
       stages {
+          stage ('Install dependencies') {
+      steps {
+        sh "apk add nodejs"
+        sh "echo $PATH"
+        sh "npm install"
+      }
+    }
         stage('Detect Changes') {
             steps {
                 script {
