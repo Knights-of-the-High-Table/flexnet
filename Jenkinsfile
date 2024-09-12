@@ -28,7 +28,7 @@ pipeline {
                 }
             }
             steps {
-                dir('frontend') {
+                dir('flexnet-frontend') {
                     sh 'npm install'
                     sh 'npm run build'
                 }
