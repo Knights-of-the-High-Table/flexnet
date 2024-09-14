@@ -22,7 +22,7 @@ pipeline {
         stage('Verify Tools') {
             steps {
                 // Check if aws, node, and npm are available
-                sh 'echo $PATH'
+                sh 'ls -l /usr/local/bin/aws'
                 sh 'which aws || echo "AWS CLI not found"'
                 sh 'aws --version || echo "AWS CLI not available"'
                 sh 'which node || echo "Node.js not found"'
