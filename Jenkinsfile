@@ -1,9 +1,5 @@
 pipeline {
-    agent { 
-        node {
-            label 'docker-agent-alpine'
-            }
-      }
+    agent any
       environment{
         S3_BUCKET = credentials('flexnet_s3_bucket')
         CLOUDFRONT_DISTRIBUTION_ID = credentials('flexnet_cloudfront_distribution_id')
