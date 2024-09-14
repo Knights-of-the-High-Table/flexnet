@@ -4,9 +4,6 @@ pipeline {
             label 'docker-agent-alpine'
             }
       }
-    tools{
-        nodejs "nodejs"
-    }
       environment{
         S3_BUCKET = credentials('flexnet_s3_bucket')
         CLOUDFRONT_DISTRIBUTION_ID = credentials('flexnet_cloudfront_distribution_id')
@@ -19,6 +16,18 @@ pipeline {
                     changedFiles = sh(script: 'git diff --name-only HEAD~1', returnStdout: true).trim().split("\n")
                     echo "Changed files: ${changedFiles}"  
                 }
+            }
+        }
+
+        stage('Verify Tools') {
+            steps {
+                // Check if aws, node, and npm are available
+                sh 'which aws || echo "AWS CLI not found"'
+                sh 'aws --version || echo "AWS CLI not available"'
+                sh 'which node || echo "Node.js not found"'
+                sh 'node --version || echo "Node.js not available"'
+                sh 'which npm || echo "npm not found"'
+                sh 'npm --version || echo "npm not available"'
             }
         }
 
