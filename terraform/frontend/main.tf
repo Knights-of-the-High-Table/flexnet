@@ -88,11 +88,11 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
 }
 
 resource "aws_route53_zone" "zone" {
-  name = "flexnet.name"
+  name = "flexnet.live"
 }
 
 resource "aws_route53_record" "route53_record" {
-  name    = var.domain
+  name    =  "app"
   type    = "A"
   zone_id = aws_route53_zone.zone.zone_id
 

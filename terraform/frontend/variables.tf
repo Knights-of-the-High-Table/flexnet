@@ -3,12 +3,6 @@ variable "bucket_name" {
   type        = string
   default     = "flexnet-website-bucket-6634"
 }
-
-variable "domain" {
-  description = "Route 53 domain"
-  type = string
-  default = "test.flexnet.com"
-}
 variable "hosted_zone_id" {
   type = string
   default = "eu-central-1"
