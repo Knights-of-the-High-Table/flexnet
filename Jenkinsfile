@@ -7,7 +7,6 @@ pipeline {
       environment{
         S3_BUCKET = credentials('flexnet_s3_bucket')
         CLOUDFRONT_DISTRIBUTION_ID = credentials('flexnet_cloudfront_distribution_id')
-        HOME = "${env.WORKSPACE}"
       }
       stages {
         stage('Detect Changes') {
@@ -18,19 +17,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Verify Tools') {
-            steps {
-                // Check if aws, node, and npm are available
-                sh 'which aws || echo "AWS CLI not found"'
-                sh 'aws --version || echo "AWS CLI not available"'
-                sh 'which node || echo "Node.js not found"'
-                sh 'node --version || echo "Node.js not available"'
-                sh 'which npm || echo "npm not found"'
-                sh 'npm --version || echo "npm not available"'
-            }
-        }
-
         stage('Build Frontend') {
             when {
                 expression {
@@ -107,7 +93,9 @@ pipeline {
             steps{
                 dir('flexnet-frontend') {
                     script {
-                        sh 'aws s3 sync dist/ s3://${S3_BUCKET}/ --delete'
+                        withAWS(region:'eu-central-1', credentials: '8a802019-5a77-44e0-86c5-060172fec59c'){
+                            sh 'aws s3 sync dist/ s3://${S3_BUCKET}/ --delete'
+                        }
                     }
                 }
             }
@@ -118,8 +106,10 @@ pipeline {
             }
             steps {
                 script {
-                    // Invalidate CloudFront cache to reflect the new changes immediately
-                    sh 'aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"'
+                    withAWS(region:'eu-central-1', credentials: '8a802019-5a77-44e0-86c5-060172fec59c'){
+                        // Invalidate CloudFront cache to reflect the new changes immediately
+                        sh 'aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"'
+                    }
                 }
             }
         }
