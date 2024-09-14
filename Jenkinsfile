@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node{
+            label 'docker-agent-aws-nodejs'
+        }
+    }
       environment{
         S3_BUCKET = credentials('flexnet_s3_bucket')
         CLOUDFRONT_DISTRIBUTION_ID = credentials('flexnet_cloudfront_distribution_id')
