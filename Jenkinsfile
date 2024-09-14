@@ -19,10 +19,6 @@ pipeline {
                     changedFiles = sh(script: 'git diff --name-only HEAD~1', returnStdout: true).trim().split("\n")
                     echo "Changed files: ${changedFiles}"  
                 }
-                nodejs(nodeJSInstallationName: 'nodejs') {
-                    sh 'node --version'
-                    sh 'npm --version'
-                }
             }
         }
 
