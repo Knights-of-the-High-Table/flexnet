@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node{
-            label 'docker-agent-nodejs-aws'
+            label 'aws-nodejs-agent'
         }
     }
       environment{
