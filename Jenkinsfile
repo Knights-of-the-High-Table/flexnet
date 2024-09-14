@@ -24,7 +24,7 @@ pipeline {
                 // Check if aws, node, and npm are available
                 sh 'echo $PATH'
                 sh 'which aws || echo "AWS CLI not found"'
-                sh '/usr/local/bin/aws --version || echo "AWS CLI not available"'
+                sh 'aws --version || echo "AWS CLI not available"'
                 sh 'which node || echo "Node.js not found"'
                 sh 'node --version || echo "Node.js not available"'
                 sh 'which npm || echo "npm not found"'
